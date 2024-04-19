@@ -1,0 +1,2372 @@
+<html
+  lang="en"
+  dir="ltr"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:mml="http://www.w3.org/1998/Math/MathML"
+>
+  <head
+    prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book#"
+  >
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accordion</title>
+    <script
+      src="https://kit.fontawesome.com/9b84cdd0eb.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=PT+Sans&display=swap");
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 15px;
+        font-family: "Gill Sans", sans-serif;
+      }
+
+      #sciscore-container h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin: 0;
+      }
+      #sciscore-container {
+        width: 40%;
+      }
+      #sciscore-container .title {
+        color: #4d4d4d;
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.5rem;
+      }
+
+      #sciscore-container .title span {
+        color: #808080;
+        font-weight: 400;
+      }
+
+      #sciscore-container .accordion {
+        width: 100%;
+        overflow: hidden;
+        background-color: #f2f2f2;
+        margin: 1.5rem 0;
+      }
+
+      #sciscore-container .accordion-intro {
+        padding: 0.25rem 0;
+        cursor: pointer;
+        height: 2.25rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      #sciscore-container .accordion-intro .arrow {
+        width: 1.25rem;
+        height: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #808080;
+      }
+
+      #sciscore-container .accordion-item.active .arrow {
+        transform: translateY(-50%) rotate(90deg);
+      }
+
+      #sciscore-container .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        will-change: max-height;
+        transition: all 0.25s ease-out;
+        color: #f1f1f1;
+        opacity: 0;
+        background-color: #fff;
+        position: relative;
+      }
+
+      #sciscore-container .accordion-active .accordion-intro {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      #sciscore-container .accordion-intro-div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: calc(100% - 2.5rem);
+      }
+
+      #sciscore-container .accordion-intro-div h5 {
+        color: #999;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.25rem;
+      }
+
+      #sciscore-container .accordion-intro h4 {
+        color: #666;
+
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.25rem; /* 142.857% */
+      }
+
+      #sciscore-container .accordion-active .accordion-content {
+        opacity: 1;
+      }
+
+      #sciscore-container .table-container {
+        max-width: 100%;
+        color: #000;
+      }
+
+      #sciscore-container .table-container::-webkit-scrollbar {
+        width: 0;
+      }
+
+      #sciscore-container .tables-heading {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      #sciscore-container .tables-heading-download {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #666;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.25rem;
+      }
+
+      #sciscore-container .tables-heading-download a {
+        cursor: pointer;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.5rem;
+      }
+
+      #sciscore-container table {
+        text-align: left;
+        border-spacing: 0;
+        margin-top: 10px;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #sciscore-container table th {
+        vertical-align: middle;
+        color: #808080;
+        font-size: 0.75rem;
+        font-weight: 600;
+        line-height: 1.125rem;
+        font-style: normal;
+      }
+
+      #sciscore-container table tr:nth-child(odd) td {
+        background-color: #f9f9f9;
+      }
+
+      #sciscore-container .table-container th,
+      #sciscore-container .table-container td {
+        padding: 0.5rem 0.75rem 0.5rem 1.5rem;
+        vertical-align: top;
+        border-bottom: 1px solid #e6e6e6;
+      }
+
+      #sciscore-container table tr {
+        display: none;
+      }
+      #sciscore-container table tr.active {
+        display: table-row;
+      }
+
+      #sciscore-container .table-group-title {
+        margin: 1.5rem 0;
+      }
+      #sciscore-container .table-group-title p {
+        color: #4d4d4d;
+        font-size: 0.857rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.5rem;
+      }
+
+      #sciscore-container .table-container th div,
+      #sciscore-container .table-container td div {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-width: 15rem;
+        color: #666;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.25rem;
+        word-break: break-word;
+      }
+
+      #sciscore-container .table-container th div,
+      #sciscore-container .table-container td .sub-content-1 {
+        color: #808080;
+        font-size: 0.75rem;
+        font-weight: 400;
+        line-height: 1.125rem;
+        margin-top: 0.25rem;
+      }
+
+      #sciscore-container .table-container th div,
+      #sciscore-container .table-container td .sub-content-2 {
+        color: #666;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.25rem;
+        text-decoration: none;
+        margin-top: 0.25rem;
+      }
+
+      #sciscore-container .alert {
+        display: flex;
+        flex-direction: column;
+        padding: 0.75rem 1rem;
+        align-items: flex-start;
+        gap: 0.75rem;
+        align-self: stretch;
+        border-radius: 0.25rem;
+        border: 1px solid #e6e6e6;
+        background: #f2f2f2;
+      }
+
+      #sciscore-container .alert span {
+        color: #4d4d4d;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.25rem;
+      }
+
+      #sciscore-container .alert p,
+      a {
+        color: #666;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.25rem;
+        text-decoration: none;
+      }
+
+      #sciscore-container .chip {
+        display: flex;
+        padding: 0.125rem 0.5rem;
+        align-items: center;
+        border-radius: 1rem;
+        justify-content: center;
+        width: fit-content;
+      }
+
+      #sciscore-container .chip span {
+        font-size: 0.75rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.125rem;
+        text-wrap: nowrap;
+      }
+
+      #sciscore-container .blueLightChip {
+        border: 1px solid #b9e6fe;
+        background: #f0f9ff;
+      }
+
+      #sciscore-container .blueLightChip span {
+        color: #026aa2;
+      }
+
+      #sciscore-container .indigoChip {
+        border: 1px solid #c7d7fe;
+        background: #eef4ff;
+      }
+
+      #sciscore-container .indigoChip span {
+        color: #3538cd;
+      }
+
+      #sciscore-container .purpleChip {
+        border: 1px solid #d9d6fe;
+        background: #f4f3ff;
+      }
+
+      #sciscore-container .purpleChip span {
+        color: #5925dc;
+      }
+
+      #sciscore-container .show-more {
+        height: 6.6875rem;
+        position: absolute;
+        bottom: 0;
+        background: linear-gradient(
+          0deg,
+          #fff 24.77%,
+          rgba(252, 252, 252, 0.1) 100%,
+          rgba(252, 252, 252, 0) 100%
+        );
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #sciscore-container .show-more a {
+        display: flex;
+        padding: 0.5rem 0.75rem;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.5rem;
+        border: 1px solid #ccc;
+        background: #fff;
+        box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+        color: #4d4d4d;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.25rem;
+        cursor: pointer;
+      }
+
+      #sciscore-container .see-here {
+        color: #666;
+        font-size: 0.75rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.125rem;
+      }
+
+      #sciscore-container sub {
+        position: relative;
+        bottom: 0.75rem;
+        font-size: 0.5rem;
+      }
+
+      @media only screen and (max-width: 768px) {
+        #sciscore-container .accordion-intro-div {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        #sciscore-container .accordion-intro {
+          height: fit-content;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sciscore-container" typeof="rdf:Resource">
+      <div class="tables-heading">
+        <p class="title">Key Resources Table from <span>SciScore</span></p>
+        <div class="tables-heading-download">
+          <a><i class="fa-solid fa-download"></i> XLS</a>
+          |
+          <a><i class="fa-solid fa-download"></i> CSV</a>
+          |
+          <a><i class="fa-solid fa-download"></i> XML</a>
+        </div>
+      </div>
+      <div class="table-group-title">
+        <p>LIFE SCIENCES</p>
+      </div>
+
+      <div class="accordion" typeof="rdfs:Class">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4 property="rdfs:label">Antibodies</h4>
+            <h5>3 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table typeof="rdfs:Resource">
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr typeof="rdfs:Resource">
+                <td property="rdfs:label">
+                  <div>
+                    <span> Rabbit monoclonal anti-Snail </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Cell Signaling Technology</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat #3879S; RRID: </span>
+                    <a href="#" class="sub-content-2"> AB_2255011 </a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Mouse monoclonal anti-Tubulin </span>
+                    <span class="sub-content-1"> clone DM1A </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Sigma-Aldrich</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat #T9026; RRID: </span>
+                    <a href="#" class="sub-content-2"> AB_477593 </a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Rabbit polyclonal anti-BMAL1 </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> N/A </span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Bacterial and virus strains</h4>
+            <h5>6 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> pAAV-hSyn-DIO-hM3D(Gq)-mCherry </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Krashes et al.<sub>1</sub></span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Addgene AAV5; </span>
+                    <a href="#" class="sub-content-2"> 44361-AAV5 </a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> AAV5-EF1a-DIO-hChR2(H134R)-EYFP </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Hope Center Viral Vectors Core</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> N/A </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Cowpox virus Brighton Red </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>BEI Resources</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> NR-88 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Zika-SMGC-1, GENBANK: KX266255 </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Isolated from patient (Wang et al.<sub>2</sub>)</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> N/A </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Staphylococcus aureus </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>ATCC</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> ATCC </span>
+                    <a href="#" class="sub-content-2"> 29213 </a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>
+                      Streptococcus pyogenes: M1 serotype strain: strain SF370;
+                      M1 GAS
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>ATCC</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> ATCC </span>
+                    <a href="#" class="sub-content-2"> 700294 </a>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Biological samples</h4>
+            <h5>3 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Healthy adult BA9 brain tissue </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>University of Maryland Brain & Tissue Bank; </span>
+                    <span class="sub-content-1">
+                      <a href="http://medschool.umarylan d.edu/btbank/"
+                        >http://medschool.umarylan d.edu/btbank/</a
+                      >
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat#UMB1455 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Human hippocampal brain blocks </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>New York Brain Bank </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a href="http://nybb.hs.colum bia.edu/"
+                        >http://nybb.hs.colum bia.edu/</a
+                      >
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Patient-derived xenografts (PDX) </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span
+                      >Children's Oncology Group Cell Culture and Xenograft
+                      Repository
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a href="http://cogcell.org/">http://cogcell.org/</a>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Chemicals, peptides, and recombinant proteins</h4>
+            <h5>6 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> MK-2206 AKT inhibitor </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Selleck Chemicals </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> S1078; CAS: </span>
+                    <span class="sub-content-2"> 1032350-13-2 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> SB-505124 </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Sigma-Aldrich </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> S4696; CAS: </span>
+                    <span class="sub-content-2"> 694433-59-5 (free base) </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Picrotoxin </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Sigma-Aldrich </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> P1675; CAS: </span>
+                    <span class="sub-content-2"> 124- 87-8 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Human TGF-β </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>R&D </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> 240-B; GenPept: </span>
+                    <span class="sub-content-2"> P01137 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Activated S6K1 </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Millipore </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat#14-486 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> GST-BMAL1 </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Novus </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat#H00000406- P01 </span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Critical commercial assays</h4>
+            <h5>3 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> EasyTag EXPRESS 35S Protein Labeling Kit </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>PerkinElmer </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> NEG772014MC </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> CaspaseGlo 3/7 </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Promega </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> G8090 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> TruSeq ChIP Sample Prep Kit </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Illumina</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>IP-202-1012 </span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Deposited data</h4>
+            <h5>5 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Raw and analyzed data </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> GEO: GSE63473 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> B-RAF RBD (apo) structure </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> PDB: 5J17 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Human reference genome NCBI build 37, GRCh37 </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Genome Reference Consortium</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a
+                        href="http://www.ncbi.nlm. nih.gov/projects/gen
+                      ome/assembly/grc/h uman/"
+                        >http://www.ncbi.nlm. nih.gov/projects/gen
+                        ome/assembly/grc/h uman/</a
+                      >
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Nanog STILT inference </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper; Mendeley Data</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a href="http://dx.doi.org/10.1 7632/wx6s4mj7s8.2"
+                        >http://dx.doi.org/10.1 7632/wx6s4mj7s8.2</a
+                      >
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>
+                      Affinity-based mass spectrometry performed with 57 genes
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper; Mendeley Data</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span
+                      >Table S8;
+                      <a href=" http://dx.doi.org/10.1 7632/5hvpvspw82.1">
+                        http://dx.doi.org/10.1 7632/5hvpvspw82.1</a
+                      ></span
+                    >
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Experimental models: Cell lines</h4>
+            <h5>4 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Hamster: CHO cells </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>ATCC </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> CRL-11268 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> D. melanogaster: Cell line S2: S2-DRSC </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Laboratory of Norbert Perrimon </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> FlyBase: </span>
+                    <span class="sub-content-2"> FBtc0000181 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Human: Passage 40 H9 ES cells </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>MSKCC stem cell core facility</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>N/A</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>
+                      Human: HUES 8 hESC line (NIH approval number
+                      NIHhESC-09-0021)
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>HSCI iPS Core</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>hES Cell Line:</span>
+                    <span class="sub-content-2">HUES-8</span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Experimental models: Organisms/strains</h4>
+            <h5>8 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>
+                      C. elegans: Strain BC4011: srl-1(s2500) II;dpy- 18(e364)
+                      III;unc-46(e177)rol-3(s1040) V.
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Caenorhabditis Genetics Center </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> WB Strain: BC4011; WormBase: </span>
+                    <span class="sub-content-2"> WBVar00241916 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>
+                      D. melanogaster: RNAi of Sxl: y[1] sc[*] v[1];
+                      P{TRiP.HMS00609}attP2
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Bloomington Drosophila Stock Center </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> BDSC:34393; FlyBase: </span>
+                    <span class="sub-content-2"> FBtp0064874 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> S. cerevisiae: Strain background: W303 </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>ATCC</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>ATTC:</span>
+                    <span class="sub-content-2">208353</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Mouse: R6/2: B6CBA-Tg(HDexon1)62Gpb/3J </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>The Jackson Laboratory</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>JAX: </span>
+                    <span class="sub-content-2">006494</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>
+                      Mouse: OXTRfl/fl: B6.129(SJL)-Oxtr<sub>tm1.1Wsy</sub>/J
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>The Jackson Laboratory</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>RRID:</span>
+                    <span class="sub-content-2">IMSR_JAX:008471</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Zebrafish: Tg(Shha:GFP)t10: t10Tg </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Neumann and Nuesslein- Volhard<sub>3</sub></span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>ZFIN:</span>
+                    <span class="sub-content-2">ZDB-GENO- 060207-1</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Arabidopsis: 35S::PIF4-YFP, BZR1-CFP </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Wang et al.<sub>4</sub></span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>N/A</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Arabidopsis: JYB1021.2: </span>
+                    <span class="sub-content-1">
+                      pS24(AT5G58010)::cS24:GFP(-G):NOS #1
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>NASC</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>NASC ID:</span>
+                    <span class="sub-content-2">N70450</span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Oligonucleotides</h4>
+            <h5>6 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> siRNA targeting sequence: PIP5K I alpha #1: </span>
+                    <span class="sub-content-1"> ACACAGUACUCAGUUGAUA </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> N/A </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Primers for XX, see Table SX </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> N/A </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Primer: GFP/YFP/CFP Forward: </span>
+                    <span class="sub-content-1">
+                      GCACGACTTCTTCAAGTCCGCCATGCC
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> N/A </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Morpholino: MO-pax2a </span>
+                    <span class="sub-content-1">
+                      GGTCTGCTTTGCAGTGAATATCCAT
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Gene Tools</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>ZFIN: </span>
+                    <span class="sub-content-2">ZDB- MRPHLNO-061106- 5</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> ACTB </span>
+                    <span class="sub-content-1">(hs01060665_g1)</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Life Technologies</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Cat#4331182</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> RNA sequence: hnRNPA1_ligand: </span>
+                    <span class="sub-content-1">
+                      UAGGGACUUAGGGUUCUCUCUAGGGACUUAG GGUUCUCUCUAGGGA
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>N/A</span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Recombinant DNA</h4>
+            <h5>5 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> pLVX-Tight-Puro (TetOn) </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Clonetech </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat#632162 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Plasmid: GFP-Nito</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> N/A </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> cDNA GH111110 </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Drosophila Genomics Resource Center </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> DGRC:5666; FlyBase:FBcl013041 5 </span>
+                    <span class="sub-content-2"> FBcl013041 5 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> AAV2/1-hsyn-GCaMP6- WPRE </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Chen et al.<sub>5</sub></span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>N/A </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Mouse raptor: pLKO mouse shRNA 1 raptor </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Thoreen et al.<sub>6</sub></span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Addgene Plasmid</span>
+                    <span class="sub-content-2">#21339</span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Software and algorithms</h4>
+            <h5>5 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> ImageJ </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Schneider et al.<sub>7</sub></span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a href="https://imagej.nih.go v/ij/"
+                        >https://imagej.nih.go v/ij/
+                      </a>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Bowtie2</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Langmead and Salzberg </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a
+                        href="http://bowtie- bio.sourceforge.net/ bowtie2/index.shtml"
+                      >
+                        http://bowtie- bio.sourceforge.net/
+                        bowtie2/index.shtml</a
+                      ></span
+                    >
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Samtools </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Li et al.<sub>9</sub></span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a href="http://samtools.sourc eforge.net/">
+                        http://samtools.sourc eforge.net/</a
+                      >
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>
+                      Weighted Maximal Information Component Analysis v0.9
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Rau et al.<sub>10</sub></span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a href="https://github.com/C hristophRau/wMICA">
+                        https://github.com/C hristophRau/wMICA
+                      </a>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> ICS algorithm </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper;</span>
+                    <span class="sub-content-1">Mendeley Data</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a href="http://dx.doi.org/10.1 7632/5hvpvspw82.1">
+                        http://dx.doi.org/10.1 7632/5hvpvspw82.1
+                      </a>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Other</h4>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>
+                      Sequence data, analyses, and resources related to the
+                      ultra-deep sequencing of the AML31 tumor, relapse, and
+                      matched normal
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a href="http://aml31.genome .wustl.edu">
+                        http://aml31.genome .wustl.edu
+                      </a>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Resource website for the AML31 publication</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a href="https://github.com/ch risamiller/aml31Sup pSite">
+                        https://github.com/ch risamiller/aml31Sup pSite
+                      </a>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="table-group-title">
+        <p>PHYSICAL SCIENCES</p>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Chemicals, peptides, and recombinant proteins</h4>
+            <h5>7 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> QD605 streptavidin conjugated quantum dot </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Thermo Fisher Scientific </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat#Q10101MP </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Platinum black</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Sigma-Aldrich </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat#205915 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Sodium formate BioUltra, ≥99.0% (NT)</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Sigma-Aldrich </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat#71359 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Chloramphenicol</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Sigma-Aldrich </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat#C0378 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Carbon dioxide ( 13 C, 99%) (<2% 18 O)</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Cambridge Isotope Laboratories </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> CLM-185-5 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>
+                      Poly(vinylidene fluoride-co-hexafluoropropylene)</span
+                    >
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Sigma-Aldrich </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> 427179 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>
+                      PTFE Hydrophilic Membrane Filters, 0.22 mm, 90 mm</span
+                    >
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Scientificfilters.com/Tisch Scientific </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> SF13842 </span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Critical commercial assays</h4>
+            <h5>4 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Folic Acid (FA) ELISA kit </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Alpha Diagnostic International </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat# 0365-0B9 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> TMT10plex Isobaric Label Reagent Set</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Thermo Fisher </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> A37725 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Surface Plasmon Resonance CM5 kit</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>GE Healthcare </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat#29104988 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> NanoBRET Target Engagement K-5 kit</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Promega </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat#N2500 </span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Deposited data</h4>
+            <h5>3 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> B-RAF RBD (apo) structure </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> PDB: 5J17 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Structure of compound 5</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper; </span>
+                    <span class="sub-content-1"
+                      >Cambridge Crystallographic Data Center</span
+                    >
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> CCDC: 2016466 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>
+                      Code for constraints-based modeling and analysis of
+                      autotrophic E. coli</span
+                    >
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a
+                        href="https://gitlab.com/ela d.noor/sloppy/tree/m aster/rubisco"
+                      >
+                        https://gitlab.com/ela d.noor/sloppy/tree/m
+                        aster/rubisco
+                      </a>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Software and algorithms</h4>
+            <h5>4 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Gaussian09 </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Frish et al.<sub>1</sub> </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a href="https://gaussian.com"> https://gaussian.com </a>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Python version 2.7</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Python Software Foundation</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a href="https://www.python.org">
+                        https://www.python.org
+                      </a>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> ChemDraw Professional 18.0</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>PerkinElmer </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a href="https://www.perkinelmer.com/category/chemdraw">
+                        https://www.perkinelmer.com/category/chemdraw
+                      </a>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>
+                      Weighted Maximal Information Component Analysis v0.9</span
+                    >
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Rau et al.<sub>2</sub> </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a href="https://github.com/Ch ristophRau/wMICA">
+                        https://github.com/Ch ristophRau/wMICA
+                      </a>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion">
+        <div class="accordion-intro">
+          <i class="fa-solid fa-caret-right arrow"></i>
+          <div class="accordion-intro-div">
+            <h4>Other</h4>
+            <h5>3 records</h5>
+          </div>
+        </div>
+        <div class="accordion-content">
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>REAGENT or RESOURCE</th>
+                <th>SOURCE</th>
+                <th>IDENTIFIER</th>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>
+                      DASGIP MX4/4 Gas Mixing Module for 4 Vessels with a Mass
+                      Flow Controller
+                    </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Eppendorf </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span> Cat#76DGMX44 </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> Agilent 1200 series HPLC</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Agilent Technologies</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a
+                        href="https://www.agilent.c
+                      om/en/products/liquid-chromatography"
+                      >
+                        https://www.agilent.c
+                        om/en/products/liquid-chromatography
+                      </a>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span> PHI Quantera II XPS</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>ULVAC-PHI, Inc. </span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>
+                      <a
+                        href="https://www.ulvac- phi.com/en/products/
+                      xps/phi-quantera-ii/"
+                      >
+                        https://www.ulvac- phi.com/en/products/
+                        xps/phi-quantera-ii/
+                      </a>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="show-more">
+              <a href="#" class="load_more">Show more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="alert">
+        <span>This data was extracted automatically by Sciscore.</span>
+        <p>
+          If you are the author and you would like to send a correction for
+          missing data, incorrect data
+          <a href="sciscore.com/biorxiv" class="see-here">see here.</a>
+        </p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const openAccordion = (accordion) => {
+          const content = accordion.querySelector(".accordion-content");
+          const arrow = accordion.querySelector(".arrow");
+          accordion.classList.add("accordion-active");
+          content.style.maxHeight = content.scrollHeight + "px";
+          arrow.classList.add("fa-caret-up");
+          arrow.classList.remove("fa-caret-right");
+        };
+
+        const closeAccordion = (accordion) => {
+          const content = accordion.querySelector(".accordion-content");
+          const arrow = accordion.querySelector(".arrow");
+          accordion.classList.remove("accordion-active");
+          content.style.maxHeight = null;
+          arrow?.classList?.add("fa-caret-right");
+          arrow?.classList?.remove("fa-caret-up");
+
+          const tableRows = accordion.querySelectorAll("table tr");
+          tableRows.forEach((row, index) => {
+            if (index >= 10) {
+              row.classList.remove("active");
+            }
+          });
+
+          resetAccordionState();
+        };
+        const initializeAccordion = (accordion) => {
+          const intro = accordion.querySelector(".accordion-intro");
+          intro.onclick = () => {
+            if (accordion.classList.contains("accordion-active")) {
+              closeAccordion(accordion);
+            } else {
+              accordions.forEach((acc) => closeAccordion(acc));
+              openAccordion(accordion);
+            }
+          };
+        };
+
+        const resetAccordionState = () => {
+          accordions.forEach((accordion) => {
+            const tableRows = accordion.querySelectorAll("table tr");
+            tableRows.forEach((row, index) => {
+              if (index < 10) {
+                row.classList.add("active");
+              } else {
+                row.classList.remove("active");
+              }
+            });
+            const loadMoreButtonDiv = accordion.querySelector(".show-more");
+            const rows = accordion.querySelectorAll("table tr");
+            const activeRows = accordion.querySelectorAll(".active");
+            loadMoreButtonDiv.style.display =
+              rows.length !== activeRows.length ? "flex" : "none";
+          });
+        };
+
+        const accordions = document.querySelectorAll(".accordion");
+
+        accordions.forEach((accordion) => {
+          initializeAccordion(accordion);
+        });
+
+        resetAccordionState();
+
+        document.querySelectorAll("a.load_more").forEach((loadMoreButton) => {
+          loadMoreButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            const accordion = this.closest(".accordion");
+            const rows = accordion.querySelectorAll("table tr");
+            const activeRows = accordion.querySelectorAll(".active");
+
+            let lastActiveIndex = -1;
+            rows.forEach((row, index) => {
+              if (row.classList.contains("active")) {
+                lastActiveIndex = index;
+              }
+            });
+            rows.forEach((row, index) => {
+              if (index <= lastActiveIndex + 10) {
+                row.classList.add("active");
+              }
+            });
+            const accordionContent =
+              accordion.querySelector(".accordion-content");
+            accordionContent.style.maxHeight =
+              accordionContent.scrollHeight + "px";
+            const loadMoreButtonDiv = accordion.querySelector(".show-more");
+
+            loadMoreButtonDiv.style.display =
+              rows.length !== activeRows.length ? "flex" : "none";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
