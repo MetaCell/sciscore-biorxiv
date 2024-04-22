@@ -206,7 +206,8 @@
       }
 
       #sciscore-container .table-container th div,
-      #sciscore-container .table-container td div {
+      #sciscore-container .table-container td div,
+      #sciscore-container .table-container td div a {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
@@ -214,9 +215,13 @@
         color: #666;
         font-size: 0.875rem;
         font-style: normal;
-        font-weight: 600;
+        font-weight: 400;
         line-height: 1.25rem;
         word-break: break-word;
+      }
+
+      #sciscore-container .table-container td div a:hover {
+        color: #4d4d4d;
       }
 
       #sciscore-container .table-container th div,
@@ -384,10 +389,6 @@
           <a><i class="fa-solid fa-download"></i> XML</a>
         </div>
       </div>
-      <div class="table-group-title">
-        <p>LIFE SCIENCES</p>
-      </div>
-
       <div class="accordion" typeof="rdfs:Class">
         <div class="accordion-intro">
           <i class="fa-solid fa-caret-right arrow"></i>
@@ -407,7 +408,7 @@
               <tr typeof="rdfs:Resource">
                 <td property="rdfs:label">
                   <div>
-                    <span> Rabbit monoclonal anti-Snail </span>
+                    <span>Rabbit monoclonal anti-Snail</span>
                   </div>
                 </td>
                 <td>
@@ -417,16 +418,16 @@
                 </td>
                 <td>
                   <div>
-                    <span> Cat #3879S; RRID: </span>
-                    <a href="#" class="sub-content-2"> AB_2255011 </a>
+                    <span>Cat #3879S;</span>
+                    <a href="#" class="sub-content-2"> RRID:AB_2255011 </a>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Mouse monoclonal anti-Tubulin </span>
-                    <span class="sub-content-1"> clone DM1A </span>
+                    <span>Mouse monoclonal anti-Tubulin</span>
+                    <span class="sub-content-1"> clone DM1A</span>
                   </div>
                 </td>
                 <td>
@@ -436,15 +437,15 @@
                 </td>
                 <td>
                   <div>
-                    <span> Cat #T9026; RRID: </span>
-                    <a href="#" class="sub-content-2"> AB_477593 </a>
+                    <span>Cat #T9026;</span>
+                    <a href="#" class="sub-content-2"> RRID:AB_477593 </a>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Rabbit polyclonal anti-BMAL1 </span>
+                    <span>Rabbit polyclonal anti-BMAL1</span>
                   </div>
                 </td>
                 <td>
@@ -454,7 +455,7 @@
                 </td>
                 <td>
                   <div>
-                    <span> N/A </span>
+                    <span>N/A</span>
                   </div>
                 </td>
               </tr>
@@ -484,7 +485,7 @@
               <tr>
                 <td>
                   <div>
-                    <span> pAAV-hSyn-DIO-hM3D(Gq)-mCherry </span>
+                    <span>pAAV-hSyn-DIO-hM3D(Gq)-mCherry</span>
                   </div>
                 </td>
                 <td>
@@ -494,7 +495,7 @@
                 </td>
                 <td>
                   <div>
-                    <span> Addgene AAV5; </span>
+                    <span>Addgene AAV5;</span>
                     <a href="#" class="sub-content-2"> 44361-AAV5 </a>
                   </div>
                 </td>
@@ -502,7 +503,7 @@
               <tr>
                 <td>
                   <div>
-                    <span> AAV5-EF1a-DIO-hChR2(H134R)-EYFP </span>
+                    <span>AAV5-EF1a-DIO-hChR2(H134R)-EYFP</span>
                   </div>
                 </td>
                 <td>
@@ -512,14 +513,14 @@
                 </td>
                 <td>
                   <div>
-                    <span> N/A </span>
+                    <span>N/A</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Cowpox virus Brighton Red </span>
+                    <span>Cowpox virus Brighton Red</span>
                   </div>
                 </td>
                 <td>
@@ -529,14 +530,14 @@
                 </td>
                 <td>
                   <div>
-                    <span> NR-88 </span>
+                    <span>NR-88</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Zika-SMGC-1, GENBANK: KX266255 </span>
+                    <span>Zika-SMGC-1, GENBANK: KX266255</span>
                   </div>
                 </td>
                 <td>
@@ -546,14 +547,14 @@
                 </td>
                 <td>
                   <div>
-                    <span> N/A </span>
+                    <span>N/A</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Staphylococcus aureus </span>
+                    <span>Staphylococcus aureus</span>
                   </div>
                 </td>
                 <td>
@@ -563,7 +564,7 @@
                 </td>
                 <td>
                   <div>
-                    <span> ATCC </span>
+                    <span>ATCC</span>
                     <a href="#" class="sub-content-2"> 29213 </a>
                   </div>
                 </td>
@@ -574,7 +575,7 @@
                     <span>
                       Streptococcus pyogenes: M1 serotype strain: strain SF370;
                       M1 GAS
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
@@ -584,7 +585,7 @@
                 </td>
                 <td>
                   <div>
-                    <span> ATCC </span>
+                    <span>ATCC</span>
                     <a href="#" class="sub-content-2"> 700294 </a>
                   </div>
                 </td>
@@ -615,50 +616,52 @@
               <tr>
                 <td>
                   <div>
-                    <span> Healthy adult BA9 brain tissue </span>
+                    <span>Healthy adult BA9 brain tissue</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>University of Maryland Brain & Tissue Bank; </span>
+                    <span>University of Maryland Brain & Tissue Bank;</span>
                     <span class="sub-content-1">
-                      <a href="http://medschool.umarylan d.edu/btbank/"
+                      <a
+                        target="_blank"
+                        href="http://medschool.umarylan d.edu/btbank/"
                         >http://medschool.umarylan d.edu/btbank/</a
                       >
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> Cat#UMB1455 </span>
+                    <span>Cat#UMB1455</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Human hippocampal brain blocks </span>
+                    <span>Human hippocampal brain blocks</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>New York Brain Bank </span>
+                    <span>New York Brain Bank</span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span>
-                      <a href="http://nybb.hs.colum bia.edu/"
+                      <a target="_blank" href="http://nybb.hs.colum bia.edu/"
                         >http://nybb.hs.colum bia.edu/</a
                       >
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Patient-derived xenografts (PDX) </span>
+                    <span>Patient-derived xenografts (PDX)</span>
                   </div>
                 </td>
                 <td>
@@ -666,14 +669,16 @@
                     <span
                       >Children's Oncology Group Cell Culture and Xenograft
                       Repository
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span>
-                      <a href="http://cogcell.org/">http://cogcell.org/</a>
-                    </span>
+                      <a target="_blank" href="http://cogcell.org/"
+                        >http://cogcell.org/</a
+                      >
+                   </span>
                   </div>
                 </td>
               </tr>
@@ -703,106 +708,106 @@
               <tr>
                 <td>
                   <div>
-                    <span> MK-2206 AKT inhibitor </span>
+                    <span>MK-2206 AKT inhibitor</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Selleck Chemicals </span>
+                    <span>Selleck Chemicals</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> S1078; CAS: </span>
-                    <span class="sub-content-2"> 1032350-13-2 </span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <span> SB-505124 </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span>Sigma-Aldrich </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span> S4696; CAS: </span>
-                    <span class="sub-content-2"> 694433-59-5 (free base) </span>
+                    <span>S1078; CAS:</span>
+                    <span class="sub-content-2"> 1032350-13-2</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Picrotoxin </span>
+                    <span>SB-505124</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Sigma-Aldrich </span>
+                    <span>Sigma-Aldrich</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> P1675; CAS: </span>
-                    <span class="sub-content-2"> 124- 87-8 </span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <span> Human TGF-β </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span>R&D </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span> 240-B; GenPept: </span>
-                    <span class="sub-content-2"> P01137 </span>
+                    <span>S4696; CAS:</span>
+                    <span class="sub-content-2"> 694433-59-5 (free base)</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Activated S6K1 </span>
+                    <span>Picrotoxin</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Millipore </span>
+                    <span>Sigma-Aldrich</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> Cat#14-486 </span>
+                    <span>P1675; CAS:</span>
+                    <span class="sub-content-2"> 124- 87-8</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> GST-BMAL1 </span>
+                    <span>Human TGF-β</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Novus </span>
+                    <span>R&D</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> Cat#H00000406- P01 </span>
+                    <span>240-B; GenPept:</span>
+                    <span class="sub-content-2"> P01137</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>Activated S6K1</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Millipore</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Cat#14-486</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>GST-BMAL1</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Novus</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Cat#H00000406- P01</span>
                   </div>
                 </td>
               </tr>
@@ -832,41 +837,41 @@
               <tr>
                 <td>
                   <div>
-                    <span> EasyTag EXPRESS 35S Protein Labeling Kit </span>
+                    <span>EasyTag EXPRESS 35S Protein Labeling Kit</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>PerkinElmer </span>
+                    <span>PerkinElmer</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> NEG772014MC </span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <span> CaspaseGlo 3/7 </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span>Promega </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span> G8090 </span>
+                    <span>NEG772014MC</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> TruSeq ChIP Sample Prep Kit </span>
+                    <span>CaspaseGlo 3/7</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Promega</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>G8090</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>TruSeq ChIP Sample Prep Kit</span>
                   </div>
                 </td>
                 <td>
@@ -876,7 +881,7 @@
                 </td>
                 <td>
                   <div>
-                    <span>IP-202-1012 </span>
+                    <span>IP-202-1012</span>
                   </div>
                 </td>
               </tr>
@@ -891,7 +896,7 @@
         <div class="accordion-intro">
           <i class="fa-solid fa-caret-right arrow"></i>
           <div class="accordion-intro-div">
-            <h4>Deposited data</h4>
+            <h4>Deposited records</h4>
             <h5>5 records</h5>
           </div>
         </div>
@@ -906,41 +911,41 @@
               <tr>
                 <td>
                   <div>
-                    <span> Raw and analyzed data </span>
+                    <span>Raw and analyzed records</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>This paper </span>
+                    <span>This paper</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> GEO: GSE63473 </span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <span> B-RAF RBD (apo) structure </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span>This paper </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span> PDB: 5J17 </span>
+                    <span>GEO: GSE63473</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Human reference genome NCBI build 37, GRCh37 </span>
+                    <span>B-RAF RBD (apo) structure</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>PDB: 5J17</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>Human reference genome NCBI build 37, GRCh37</span>
                   </div>
                 </td>
                 <td>
@@ -952,33 +957,36 @@
                   <div>
                     <span>
                       <a
+                        target="_blank"
                         href="http://www.ncbi.nlm. nih.gov/projects/gen
                       ome/assembly/grc/h uman/"
                         >http://www.ncbi.nlm. nih.gov/projects/gen
                         ome/assembly/grc/h uman/</a
                       >
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Nanog STILT inference </span>
+                    <span>Nanog STILT inference</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>This paper; Mendeley Data</span>
+                    <span>This paper; Mendeley records</span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span>
-                      <a href="http://dx.doi.org/10.1 7632/wx6s4mj7s8.2"
+                      <a
+                        target="_blank"
+                        href="http://dx.doi.org/10.1 7632/wx6s4mj7s8.2"
                         >http://dx.doi.org/10.1 7632/wx6s4mj7s8.2</a
                       >
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
@@ -987,19 +995,22 @@
                   <div>
                     <span>
                       Affinity-based mass spectrometry performed with 57 genes
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>This paper; Mendeley Data</span>
+                    <span>This paper; Mendeley records</span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span
                       >Table S8;
-                      <a href=" http://dx.doi.org/10.1 7632/5hvpvspw82.1">
+                      <a
+                        target="_blank"
+                        href=" http://dx.doi.org/10.1 7632/5hvpvspw82.1"
+                      >
                         http://dx.doi.org/10.1 7632/5hvpvspw82.1</a
                       ></span
                     >
@@ -1032,42 +1043,42 @@
               <tr>
                 <td>
                   <div>
-                    <span> Hamster: CHO cells </span>
+                    <span>Hamster: CHO cells</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>ATCC </span>
+                    <span>ATCC</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> CRL-11268 </span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <span> D. melanogaster: Cell line S2: S2-DRSC </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span>Laboratory of Norbert Perrimon </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span> FlyBase: </span>
-                    <span class="sub-content-2"> FBtc0000181 </span>
+                    <span>CRL-11268</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Human: Passage 40 H9 ES cells </span>
+                    <span>D. melanogaster: Cell line S2: S2-DRSC</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Laboratory of Norbert Perrimon</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>FlyBase:</span>
+                    <span class="sub-content-2"> FBtc0000181</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>Human: Passage 40 H9 ES cells</span>
                   </div>
                 </td>
                 <td>
@@ -1087,7 +1098,7 @@
                     <span>
                       Human: HUES 8 hESC line (NIH approval number
                       NIHhESC-09-0021)
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
@@ -1131,18 +1142,18 @@
                     <span>
                       C. elegans: Strain BC4011: srl-1(s2500) II;dpy- 18(e364)
                       III;unc-46(e177)rol-3(s1040) V.
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Caenorhabditis Genetics Center </span>
+                    <span>Caenorhabditis Genetics Center</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> WB Strain: BC4011; WormBase: </span>
-                    <span class="sub-content-2"> WBVar00241916 </span>
+                    <span>WB Strain: BC4011; WormBase:</span>
+                    <span class="sub-content-2"> WBVar00241916</span>
                   </div>
                 </td>
               </tr>
@@ -1152,25 +1163,25 @@
                     <span>
                       D. melanogaster: RNAi of Sxl: y[1] sc[*] v[1];
                       P{TRiP.HMS00609}attP2
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Bloomington Drosophila Stock Center </span>
+                    <span>Bloomington Drosophila Stock Center</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> BDSC:34393; FlyBase: </span>
-                    <span class="sub-content-2"> FBtp0064874 </span>
+                    <span>BDSC:34393; FlyBase:</span>
+                    <span class="sub-content-2"> FBtp0064874</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> S. cerevisiae: Strain background: W303 </span>
+                    <span>S. cerevisiae: Strain background: W303</span>
                   </div>
                 </td>
                 <td>
@@ -1188,7 +1199,7 @@
               <tr>
                 <td>
                   <div>
-                    <span> Mouse: R6/2: B6CBA-Tg(HDexon1)62Gpb/3J </span>
+                    <span>Mouse: R6/2: B6CBA-Tg(HDexon1)62Gpb/3J</span>
                   </div>
                 </td>
                 <td>
@@ -1198,7 +1209,7 @@
                 </td>
                 <td>
                   <div>
-                    <span>JAX: </span>
+                    <span>JAX:</span>
                     <span class="sub-content-2">006494</span>
                   </div>
                 </td>
@@ -1208,7 +1219,7 @@
                   <div>
                     <span>
                       Mouse: OXTRfl/fl: B6.129(SJL)-Oxtr<sub>tm1.1Wsy</sub>/J
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
@@ -1218,15 +1229,14 @@
                 </td>
                 <td>
                   <div>
-                    <span>RRID:</span>
-                    <span class="sub-content-2">IMSR_JAX:008471</span>
+                    <span class="sub-content-2">RRID:IMSR_JAX:008471</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Zebrafish: Tg(Shha:GFP)t10: t10Tg </span>
+                    <span>Zebrafish: Tg(Shha:GFP)t10: t10Tg</span>
                   </div>
                 </td>
                 <td>
@@ -1244,7 +1254,7 @@
               <tr>
                 <td>
                   <div>
-                    <span> Arabidopsis: 35S::PIF4-YFP, BZR1-CFP </span>
+                    <span>Arabidopsis: 35S::PIF4-YFP, BZR1-CFP</span>
                   </div>
                 </td>
                 <td>
@@ -1261,10 +1271,10 @@
               <tr>
                 <td>
                   <div>
-                    <span> Arabidopsis: JYB1021.2: </span>
+                    <span>Arabidopsis: JYB1021.2:</span>
                     <span class="sub-content-1">
                       pS24(AT5G58010)::cS24:GFP(-G):NOS #1
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
@@ -1305,65 +1315,65 @@
               <tr>
                 <td>
                   <div>
-                    <span> siRNA targeting sequence: PIP5K I alpha #1: </span>
-                    <span class="sub-content-1"> ACACAGUACUCAGUUGAUA </span>
+                    <span>siRNA targeting sequence: PIP5K I alpha #1:</span>
+                    <span class="sub-content-1"> ACACAGUACUCAGUUGAUA</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>This paper </span>
+                    <span>This paper</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> N/A </span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <span> Primers for XX, see Table SX </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span>This paper </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span> N/A </span>
+                    <span>N/A</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Primer: GFP/YFP/CFP Forward: </span>
+                    <span>Primers for XX, see Table SX</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>This paper</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>N/A</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>Primer: GFP/YFP/CFP Forward:</span>
                     <span class="sub-content-1">
                       GCACGACTTCTTCAAGTCCGCCATGCC
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>This paper </span>
+                    <span>This paper</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> N/A </span>
+                    <span>N/A</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Morpholino: MO-pax2a </span>
+                    <span>Morpholino: MO-pax2a</span>
                     <span class="sub-content-1">
                       GGTCTGCTTTGCAGTGAATATCCAT
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
@@ -1373,7 +1383,7 @@
                 </td>
                 <td>
                   <div>
-                    <span>ZFIN: </span>
+                    <span>ZFIN:</span>
                     <span class="sub-content-2">ZDB- MRPHLNO-061106- 5</span>
                   </div>
                 </td>
@@ -1381,7 +1391,7 @@
               <tr>
                 <td>
                   <div>
-                    <span> ACTB </span>
+                    <span>ACTB</span>
                     <span class="sub-content-1">(hs01060665_g1)</span>
                   </div>
                 </td>
@@ -1399,10 +1409,10 @@
               <tr>
                 <td>
                   <div>
-                    <span> RNA sequence: hnRNPA1_ligand: </span>
+                    <span>RNA sequence: hnRNPA1_ligand:</span>
                     <span class="sub-content-1">
                       UAGGGACUUAGGGUUCUCUCUAGGGACUUAG GGUUCUCUCUAGGGA
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
@@ -1442,59 +1452,59 @@
               <tr>
                 <td>
                   <div>
-                    <span> pLVX-Tight-Puro (TetOn) </span>
+                    <span>pLVX-Tight-Puro (TetOn)</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Clonetech </span>
+                    <span>Clonetech</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> Cat#632162 </span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <span> Plasmid: GFP-Nito</span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span>This paper </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span> N/A </span>
+                    <span>Cat#632162</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> cDNA GH111110 </span>
+                    <span>Plasmid: GFP-Nito</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Drosophila Genomics Resource Center </span>
+                    <span>This paper</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> DGRC:5666; FlyBase:FBcl013041 5 </span>
-                    <span class="sub-content-2"> FBcl013041 5 </span>
+                    <span>N/A</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> AAV2/1-hsyn-GCaMP6- WPRE </span>
+                    <span>cDNA GH111110</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Drosophila Genomics Resource Center</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>DGRC:5666; FlyBase:FBcl013041 5</span>
+                    <span class="sub-content-2"> FBcl013041 5</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>AAV2/1-hsyn-GCaMP6- WPRE</span>
                   </div>
                 </td>
                 <td>
@@ -1504,14 +1514,14 @@
                 </td>
                 <td>
                   <div>
-                    <span>N/A </span>
+                    <span>N/A</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Mouse raptor: pLKO mouse shRNA 1 raptor </span>
+                    <span>Mouse raptor: pLKO mouse shRNA 1 raptor</span>
                   </div>
                 </td>
                 <td>
@@ -1552,7 +1562,7 @@
               <tr>
                 <td>
                   <div>
-                    <span> ImageJ </span>
+                    <span>ImageJ</span>
                   </div>
                 </td>
                 <td>
@@ -1563,28 +1573,29 @@
                 <td>
                   <div>
                     <span>
-                      <a href="https://imagej.nih.go v/ij/"
+                      <a target="_blank" href="https://imagej.nih.go v/ij/"
                         >https://imagej.nih.go v/ij/
                       </a>
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Bowtie2</span>
+                    <span>Bowtie2</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Langmead and Salzberg </span>
+                    <span>Langmead and Salzberg</span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span>
                       <a
+                        target="_blank"
                         href="http://bowtie- bio.sourceforge.net/ bowtie2/index.shtml"
                       >
                         http://bowtie- bio.sourceforge.net/
@@ -1597,7 +1608,7 @@
               <tr>
                 <td>
                   <div>
-                    <span> Samtools </span>
+                    <span>Samtools</span>
                   </div>
                 </td>
                 <td>
@@ -1608,10 +1619,13 @@
                 <td>
                   <div>
                     <span>
-                      <a href="http://samtools.sourc eforge.net/">
+                      <a
+                        target="_blank"
+                        href="http://samtools.sourc eforge.net/"
+                      >
                         http://samtools.sourc eforge.net/</a
                       >
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
@@ -1620,7 +1634,7 @@
                   <div>
                     <span>
                       Weighted Maximal Information Component Analysis v0.9
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
@@ -1631,32 +1645,38 @@
                 <td>
                   <div>
                     <span>
-                      <a href="https://github.com/C hristophRau/wMICA">
+                      <a
+                        target="_blank"
+                        href="https://github.com/C hristophRau/wMICA"
+                      >
                         https://github.com/C hristophRau/wMICA
                       </a>
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> ICS algorithm </span>
+                    <span>ICS algorithm</span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span>This paper;</span>
-                    <span class="sub-content-1">Mendeley Data</span>
+                    <span class="sub-content-1">Mendeley records</span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span>
-                      <a href="http://dx.doi.org/10.1 7632/5hvpvspw82.1">
+                      <a
+                        target="_blank"
+                        href="http://dx.doi.org/10.1 7632/5hvpvspw82.1"
+                      >
                         http://dx.doi.org/10.1 7632/5hvpvspw82.1
                       </a>
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
@@ -1686,45 +1706,48 @@
                 <td>
                   <div>
                     <span>
-                      Sequence data, analyses, and resources related to the
+                      Sequence records, analyses, and resources related to the
                       ultra-deep sequencing of the AML31 tumor, relapse, and
                       matched normal
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>This paper </span>
+                    <span>This paper</span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span>
-                      <a href="http://aml31.genome .wustl.edu">
+                      <a target="_blank" href="http://aml31.genome .wustl.edu">
                         http://aml31.genome .wustl.edu
                       </a>
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Resource website for the AML31 publication</span>
+                    <span>Resource website for the AML31 publication</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>This paper </span>
+                    <span>This paper</span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span>
-                      <a href="https://github.com/ch risamiller/aml31Sup pSite">
+                      <a
+                        target="_blank"
+                        href="https://github.com/ch risamiller/aml31Sup pSite"
+                      >
                         https://github.com/ch risamiller/aml31Sup pSite
                       </a>
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
@@ -1734,9 +1757,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="table-group-title">
-        <p>PHYSICAL SCIENCES</p>
       </div>
       <div class="accordion">
         <div class="accordion-intro">
@@ -1757,85 +1777,85 @@
               <tr>
                 <td>
                   <div>
-                    <span> QD605 streptavidin conjugated quantum dot </span>
+                    <span>QD605 streptavidin conjugated quantum dot</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Thermo Fisher Scientific </span>
+                    <span>Thermo Fisher Scientific</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> Cat#Q10101MP </span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <span> Platinum black</span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span>Sigma-Aldrich </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span> Cat#205915 </span>
+                    <span>Cat#Q10101MP</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Sodium formate BioUltra, ≥99.0% (NT)</span>
+                    <span>Platinum black</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Sigma-Aldrich </span>
+                    <span>Sigma-Aldrich</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> Cat#71359 </span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <span> Chloramphenicol</span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span>Sigma-Aldrich </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span> Cat#C0378 </span>
+                    <span>Cat#205915</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Carbon dioxide ( 13 C, 99%) (<2% 18 O)</span>
+                    <span>Sodium formate BioUltra, ≥99.0% (NT)</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Cambridge Isotope Laboratories </span>
+                    <span>Sigma-Aldrich</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> CLM-185-5 </span>
+                    <span>Cat#71359</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>Chloramphenicol</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Sigma-Aldrich</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Cat#C0378</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>Carbon dioxide ( 13 C, 99%) (<2% 18 O)</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Cambridge Isotope Laboratories</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>CLM-185-5</span>
                   </div>
                 </td>
               </tr>
@@ -1849,12 +1869,12 @@
                 </td>
                 <td>
                   <div>
-                    <span>Sigma-Aldrich </span>
+                    <span>Sigma-Aldrich</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> 427179 </span>
+                    <span>427179</span>
                   </div>
                 </td>
               </tr>
@@ -1868,12 +1888,12 @@
                 </td>
                 <td>
                   <div>
-                    <span>Scientificfilters.com/Tisch Scientific </span>
+                    <span>Scientificfilters.com/Tisch Scientific</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> SF13842 </span>
+                    <span>SF13842</span>
                   </div>
                 </td>
               </tr>
@@ -1903,68 +1923,68 @@
               <tr>
                 <td>
                   <div>
-                    <span> Folic Acid (FA) ELISA kit </span>
+                    <span>Folic Acid (FA) ELISA kit</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Alpha Diagnostic International </span>
+                    <span>Alpha Diagnostic International</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> Cat# 0365-0B9 </span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <span> TMT10plex Isobaric Label Reagent Set</span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span>Thermo Fisher </span>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <span> A37725 </span>
+                    <span>Cat# 0365-0B9</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Surface Plasmon Resonance CM5 kit</span>
+                    <span>TMT10plex Isobaric Label Reagent Set</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>GE Healthcare </span>
+                    <span>Thermo Fisher</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> Cat#29104988 </span>
+                    <span>A37725</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> NanoBRET Target Engagement K-5 kit</span>
+                    <span>Surface Plasmon Resonance CM5 kit</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Promega </span>
+                    <span>GE Healthcare</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> Cat#N2500 </span>
+                    <span>Cat#29104988</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div>
+                    <span>NanoBRET Target Engagement K-5 kit</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Promega</span>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <span>Cat#N2500</span>
                   </div>
                 </td>
               </tr>
@@ -1979,7 +1999,7 @@
         <div class="accordion-intro">
           <i class="fa-solid fa-caret-right arrow"></i>
           <div class="accordion-intro-div">
-            <h4>Deposited data</h4>
+            <h4>Deposited records</h4>
             <h5>3 records</h5>
           </div>
         </div>
@@ -1994,37 +2014,37 @@
               <tr>
                 <td>
                   <div>
-                    <span> B-RAF RBD (apo) structure </span>
+                    <span>B-RAF RBD (apo) structure</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>This paper </span>
+                    <span>This paper</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> PDB: 5J17 </span>
+                    <span>PDB: 5J17</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Structure of compound 5</span>
+                    <span>Structure of compound 5</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>This paper; </span>
+                    <span>This paper;</span>
                     <span class="sub-content-1"
-                      >Cambridge Crystallographic Data Center</span
+                      >Cambridge Crystallographic records Center</span
                     >
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> CCDC: 2016466 </span>
+                    <span>CCDC: 2016466</span>
                   </div>
                 </td>
               </tr>
@@ -2039,19 +2059,20 @@
                 </td>
                 <td>
                   <div>
-                    <span>This paper </span>
+                    <span>This paper</span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span>
                       <a
+                        target="_blank"
                         href="https://gitlab.com/ela d.noor/sloppy/tree/m aster/rubisco"
                       >
                         https://gitlab.com/ela d.noor/sloppy/tree/m
                         aster/rubisco
                       </a>
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
@@ -2081,26 +2102,28 @@
               <tr>
                 <td>
                   <div>
-                    <span> Gaussian09 </span>
+                    <span>Gaussian09</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Frish et al.<sub>1</sub> </span>
+                    <span>Frish et al.<sub>1</sub></span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span>
-                      <a href="https://gaussian.com"> https://gaussian.com </a>
-                    </span>
+                      <a target="_blank" href="https://gaussian.com">
+                        https://gaussian.com
+                      </a>
+                   </span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Python version 2.7</span>
+                    <span>Python version 2.7</span>
                   </div>
                 </td>
                 <td>
@@ -2111,31 +2134,34 @@
                 <td>
                   <div>
                     <span>
-                      <a href="https://www.python.org">
+                      <a target="_blank" href="https://www.python.org">
                         https://www.python.org
                       </a>
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> ChemDraw Professional 18.0</span>
+                    <span>ChemDraw Professional 18.0</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>PerkinElmer </span>
+                    <span>PerkinElmer</span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span>
-                      <a href="https://www.perkinelmer.com/category/chemdraw">
+                      <a
+                        target="_blank"
+                        href="https://www.perkinelmer.com/category/chemdraw"
+                      >
                         https://www.perkinelmer.com/category/chemdraw
                       </a>
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
@@ -2149,16 +2175,19 @@
                 </td>
                 <td>
                   <div>
-                    <span>Rau et al.<sub>2</sub> </span>
+                    <span>Rau et al.<sub>2</sub></span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span>
-                      <a href="https://github.com/Ch ristophRau/wMICA">
+                      <a
+                        target="_blank"
+                        href="https://github.com/Ch ristophRau/wMICA"
+                      >
                         https://github.com/Ch ristophRau/wMICA
                       </a>
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
@@ -2191,24 +2220,24 @@
                     <span>
                       DASGIP MX4/4 Gas Mixing Module for 4 Vessels with a Mass
                       Flow Controller
-                    </span>
+                   </span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>Eppendorf </span>
+                    <span>Eppendorf</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span> Cat#76DGMX44 </span>
+                    <span>Cat#76DGMX44</span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> Agilent 1200 series HPLC</span>
+                    <span>Agilent 1200 series HPLC</span>
                   </div>
                 </td>
                 <td>
@@ -2220,38 +2249,40 @@
                   <div>
                     <span>
                       <a
+                        target="_blank"
                         href="https://www.agilent.c
                       om/en/products/liquid-chromatography"
                       >
                         https://www.agilent.c
                         om/en/products/liquid-chromatography
                       </a>
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
               <tr>
                 <td>
                   <div>
-                    <span> PHI Quantera II XPS</span>
+                    <span>PHI Quantera II XPS</span>
                   </div>
                 </td>
                 <td>
                   <div>
-                    <span>ULVAC-PHI, Inc. </span>
+                    <span>ULVAC-PHI, Inc.</span>
                   </div>
                 </td>
                 <td>
                   <div>
                     <span>
                       <a
+                        target="_blank"
                         href="https://www.ulvac- phi.com/en/products/
                       xps/phi-quantera-ii/"
                       >
                         https://www.ulvac- phi.com/en/products/
                         xps/phi-quantera-ii/
                       </a>
-                    </span>
+                   </span>
                   </div>
                 </td>
               </tr>
@@ -2263,11 +2294,13 @@
         </div>
       </div>
       <div class="alert">
-        <span>This data was extracted automatically by Sciscore.</span>
+        <span>This records was extracted automatically by Sciscore.</span>
         <p>
           If you are the author and you would like to send a correction for
-          missing data, incorrect data
-          <a href="sciscore.com/biorxiv" class="see-here">see here.</a>
+          missing records, incorrect records
+          <a target="_blank" href="sciscore.com/biorxiv" class="see-here"
+            >see here.</a
+          >
         </p>
       </div>
     </div>
