@@ -220,25 +220,58 @@
         word-break: break-word;
       }
 
+      #sciscore-container .table-container td div a {
+        color: #0C8CE9;
+        font-weight: 600;
+      }
+
       #sciscore-container .table-container td div a:hover {
-        color: #4d4d4d;
+        text-decoration: underline;
+      }
+
+      #sciscore-container .table-container td div .suggested-link {
+        color: #666666;
+        position: relative;
+      }
+
+      #sciscore-container .table-container td div .disabled-link {
+        color: #999;
+        font-weight: 600;
+      }
+
+      .suggested-link-tooltip {
+        visibility: hidden;
+        background-color: #1A1A1A;
+        color: #fff;
+        font-size: 0.75rem;
+        border-radius: 0.5rem;
+        padding: 0.25rem 0.5rem;
+        position: absolute;
+        z-index: 1;
+        bottom: 100%;
+        right: 0;
+        box-shadow: 0px 12px 16px -4px rgba(16, 24, 40, 0.08), 0px 4px 6px -2px rgba(16, 24, 40, 0.03);
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .suggested-link:hover .suggested-link-tooltip {
+        visibility: visible;
+        opacity: 1;
       }
 
       #sciscore-container .table-container th div,
       #sciscore-container .table-container td .sub-content-1 {
-        color: #808080;
         font-size: 0.75rem;
-        font-weight: 400;
         line-height: 1.125rem;
         margin-top: 0.25rem;
       }
 
       #sciscore-container .table-container th div,
       #sciscore-container .table-container td .sub-content-2 {
-        color: #666;
         font-size: 0.875rem;
         font-style: normal;
-        font-weight: 700;
         line-height: 1.25rem;
         text-decoration: none;
         margin-top: 0.25rem;
@@ -983,8 +1016,14 @@
                     <span>
                       <a
                         target="_blank"
+                        class="suggested-link"
                         href="http://dx.doi.org/10.1 7632/wx6s4mj7s8.2"
-                        >http://dx.doi.org/10.1 7632/wx6s4mj7s8.2</a
+                        >http://dx.doi.org/10.1 7632/wx6s4mj7s8.2
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M9.16675 12.5001H10.8334V14.1667H9.16675V12.5001ZM9.16675 5.83342H10.8334V10.8334H9.16675V5.83342ZM9.99175 1.66675C5.39175 1.66675 1.66675 5.40008 1.66675 10.0001C1.66675 14.6001 5.39175 18.3334 9.99175 18.3334C14.6001 18.3334 18.3334 14.6001 18.3334 10.0001C18.3334 5.40008 14.6001 1.66675 9.99175 1.66675ZM10.0001 16.6667C6.31675 16.6667 3.33341 13.6834 3.33341 10.0001C3.33341 6.31675 6.31675 3.33341 10.0001 3.33341C13.6834 3.33341 16.6667 6.31675 16.6667 10.0001C16.6667 13.6834 13.6834 16.6667 10.0001 16.6667Z" fill="#999999"/>
+                          </svg>
+                          <span class="suggested-link-tooltip">Suggested link</span>
+                        </a
                       >
                    </span>
                   </div>
@@ -1007,11 +1046,10 @@
                   <div>
                     <span
                       >Table S8;
-                      <a
-                        target="_blank"
-                        href=" http://dx.doi.org/10.1 7632/5hvpvspw82.1"
+                      <span
+                        class="disabled-link"
                       >
-                        http://dx.doi.org/10.1 7632/5hvpvspw82.1</a
+                        http://dx.doi.org/10.1 7632/5hvpvspw82.1</span
                       ></span
                     >
                   </div>
