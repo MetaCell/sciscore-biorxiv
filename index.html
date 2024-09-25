@@ -2361,15 +2361,6 @@
           content.style.maxHeight = null;
           arrow?.classList?.add("fa-caret-right");
           arrow?.classList?.remove("fa-caret-up");
-
-          const tableRows = accordion.querySelectorAll("table tr");
-          tableRows.forEach((row, index) => {
-            if (index >= 10) {
-              row.classList.remove("active");
-            }
-          });
-
-          resetAccordionState();
         };
         const initializeAccordion = (accordion) => {
           const intro = accordion.querySelector(".accordion-intro");
@@ -2377,7 +2368,6 @@
             if (accordion.classList.contains("accordion-active")) {
               closeAccordion(accordion);
             } else {
-              accordions.forEach((acc) => closeAccordion(acc));
               openAccordion(accordion);
             }
           };
@@ -2398,6 +2388,7 @@
             const activeRows = accordion.querySelectorAll(".active");
             loadMoreButtonDiv.style.display =
               rows.length !== activeRows.length ? "flex" : "none";
+            openAccordion(accordion);
           });
         };
 
